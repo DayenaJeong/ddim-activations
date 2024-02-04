@@ -1,3 +1,0 @@
-# Preprocessing layers
-
-{{toc}}
