@@ -39,6 +39,7 @@ x = np.linspace(-10, 10, 1000)
 # 활성화 함수들을 그래프에 그리기
 plt.figure(figsize=(12, 8))
 plt.plot(x, sigmoid(x), label='sigmoid')
+# Softmax 제외
 plt.plot(x, tanh(x), label='tanh')
 plt.plot(x, relu(x), label='ReLU')
 plt.plot(x, leaky_relu(x), label='Leaky ReLU')
