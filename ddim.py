@@ -87,7 +87,7 @@ from keras import ops
 # data
 dataset_name = "oxford_flowers102"
 dataset_repetitions = 5
-num_epochs = 1  # train for at least 50 epochs for good results
+num_epochs = 50  # train for at least 50 epochs for good results
 image_size = 64
 # KID = Kernel Inception Distance, see related section
 kid_image_size = 75
@@ -327,7 +327,7 @@ def ResidualBlock(width):
         else:
             residual = layers.Conv2D(width, kernel_size=1)(x)
         x = layers.BatchNormalization(center=False, scale=False)(x)
-        x = layers.Conv2D(width, kernel_size=3, padding="same", activation="swish")(x)
+        x = layers.Conv2D(width, kernel_size=3, padding="same", activation="swish")(x) # try to change this layer
         x = layers.Conv2D(width, kernel_size=3, padding="same")(x)
         x = layers.Add()([x, residual])
         return x
@@ -679,7 +679,7 @@ checkpoint_callback = keras.callbacks.ModelCheckpoint(
 model.normalizer.adapt(train_dataset)
 
 # run training and plot generated images periodically
-model.fit(
+history = model.fit(
     train_dataset,
     epochs=num_epochs,
     validation_data=val_dataset,
