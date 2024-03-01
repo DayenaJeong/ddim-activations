@@ -687,7 +687,7 @@ history = model.fit(
         keras.callbacks.LambdaCallback(on_epoch_end=model.plot_images),
         checkpoint_callback,
     ],
-)..
+)
 
 """
 ## Inference
