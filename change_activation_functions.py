@@ -16,15 +16,19 @@ def ResidualBlock(width):
 #############################################################
 # Sigmoid
 
+x = layers.Conv2D(width, kernel_size=3, padding="same", activation="sigmoid")(x)
 #############################################################
 # Softmax
 
+x = layers.Conv2D(width, kernel_size=3, padding="same", activation="softmax")(x)
 #############################################################
 # Tanh
 
+x = layers.Conv2D(width, kernel_size=3, padding="same", activation="tanh")(x)
 #############################################################
 # ReLU
 
+x = layers.Conv2D(width, kernel_size=3, padding="same", activation="relu")(x)
 #############################################################
 # Leaky ReLU
 
@@ -41,9 +45,11 @@ x = PReLU()(x)
 #############################################################
 # ELU
 
+x = layers.Conv2D(width, kernel_size=3, padding="same", activation="elu")(x)
 #############################################################
 # Softplus
 
+x = layers.Conv2D(width, kernel_size=3, padding="same", activation="softplus")(x)
 #############################################################
 # Swish
 
