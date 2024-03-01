@@ -32,6 +32,8 @@ x = layers.Conv2D(width, kernel_size=3, padding="same", activation="relu")(x)
 #############################################################
 # Leaky ReLU
 
+from tensorflow.keras.layers import LeakyReLU
+
 x = layers.Conv2D(width, kernel_size=3, padding="same")(x)
 # Apply LeakyReLU activation
 x = layers.LeakyReLU()(x)
